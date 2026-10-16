@@ -164,7 +164,7 @@ document.querySelector("#generateButton").addEventListener("click", () => {
 downloadButton.addEventListener("click", () => {
   if (downloadButton.disabled) return;
   const link = document.createElement("a");
-  link.download = "creator-call-thumbnail.png";
+  link.download = "hiring-post-thumbnail.png";
   link.href = canvas.toDataURL("image/png");
   link.click();
 });
