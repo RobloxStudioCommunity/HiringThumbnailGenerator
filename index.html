@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Generate polished hiring thumbnails for creator roles." />
+    <title>RSC Hiring Thumbnail Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="control-panel">
+        <header class="brand">
+          <img id="brandingImage" src="branding.png" alt="RSC Logo" />
+          <span>Roblox Studio Community</span>
+        </header>
+
+        <div class="intro">
+          <p class="intro-copy">Automatically generate a clean thumbnail for your hiring post in the marketplace.</p>
+        </div>
+
+        <div class="selection-header">
+          <div>
+            <p class="section-label">Select roles</p>
+            <p class="selection-count"><strong id="selectedCount">0</strong> selected</p>
+          </div>
+          <button class="clear-button" id="clearButton" type="button">Clear all</button>
+        </div>
+
+        <div class="header-text-field">
+          <label for="headerTextInput">Thumbnail header</label>
+          <input id="headerTextInput" type="text" maxlength="32" value="We're Hiring!" />
+        </div>
+
+        <div class="category-grid" id="categoryGrid" aria-label="Creator categories"></div>
+        <form class="custom-role-field" id="customRoleField" hidden>
+          <label for="customRoleInput">Custom role</label>
+          <div class="custom-role-controls">
+            <input id="customRoleInput" type="text" maxlength="24" placeholder="e.g. Community Manager" />
+            <input id="customRoleColor" type="color" value="#0689F0" aria-label="Custom role color" />
+            <button class="custom-role-submit" type="submit">Add</button>
+          </div>
+        </form>
+
+        <div class="tip">
+          <span class="tip-icon">✦</span>
+          <p>Choose up to <strong>10 roles</strong></p>
+        </div>
+
+        <button class="generate-button" id="generateButton" type="button">
+          <span>Generate thumbnail</span>
+          <span class="button-arrow">↗</span>
+        </button>
+      </section>
+
+      <section class="preview-panel">
+        <div class="preview-topbar">
+          <div>
+            <p class="section-label">Your thumbnail</p>
+            <p class="preview-status" id="previewStatus">Preview updates as you select roles</p>
+          </div>
+          <span class="format-pill">16:9 <span>PNG</span></span>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas id="thumbnailCanvas" width="1600" height="900" aria-label="Generated thumbnail preview"></canvas>
+          <div class="empty-state" id="emptyState">
+            <span class="empty-spark">✦</span>
+            <p>Your roles will appear here</p>
+            <small>Select one or more to begin</small>
+          </div>
+        </div>
+
+        <div class="preview-footer">
+          <button class="download-button" id="downloadButton" type="button" disabled>
+            <span>Download PNG</span>
+            <span>↓</span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
